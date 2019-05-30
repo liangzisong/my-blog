@@ -3,26 +3,33 @@ plugins {
     id 'java'
     id 'war'
 }
-
 apply plugin: 'io.spring.dependency-management'
-
-group = 'com.liang'
-version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '1.8'
 
 configurations {
     compileOnly {
         extendsFrom annotationProcessor
     }
 }
+// 所有项目通用配置
+allprojects{
+    group = 'com.liang'
+    version = '0.0.1-SNAPSHOT'
 
-repositories {
-    //使用ali的maven中央仓库
+    repositories {
+        //使用ali的maven中央仓库
 //    mavenCentral()
-    maven {
-        url 'http://maven.aliyun.com/nexus/content/groups/public/'
+        maven {
+            url 'http://maven.aliyun.com/nexus/content/groups/public/'
+        }
     }
+
 }
+
+// 所有子项目的通用配置
+subprojects{
+    sourceCompatibility = '1.8'
+}
+
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
