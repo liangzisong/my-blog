@@ -4,3 +4,7 @@ pluginManagement {
     }
 }
 rootProject.name = 'myblog'
+include 'my-blog-controller'
+include 'my-blog-service'
+include 'my-blog-dao'
+
